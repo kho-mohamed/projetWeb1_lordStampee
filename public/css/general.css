@@ -1,0 +1,60 @@
+:root {
+  /* Couleurs */
+  --couleur-principale: rgb(35, 53, 128);
+  --texte: #384054;
+  --cliquable-principal: #b13f3f;
+  --hover-principal: #e8c5c5;
+  --cliquable-secondaire: #2e5899;
+  --hover-secondaire: #a8c0e5;
+  --separateur: #d4af37;
+  --fond-gris: #f7f7f7;
+  --fond-blanc: #ffffff;
+
+  /* Polices */
+  --font-titre: "EB Garamond", serif;
+  --font-texte: "Raleway", sans-serif;
+  --taille-titre: 1.5em;
+  --taille-titre2: 1.2em;
+  --taille-texte: 1em;
+  --taille-petit-texte: 0.8em;
+
+  /* Espacement */
+  --espace-standard: 20px;
+  --espace-large: 40px;
+  --espace-petit: 10px;
+  --espace-tres-petit: 5px;
+}
+
+body {
+  font-family: var(--font-texte);
+  color: var(--texte);
+  background-color: var(--fond-blanc);
+  font-size: 16px;
+  line-height: 1.6;
+  display: flex;
+  flex-flow: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-titre);
+  color: var(--couleur-principale);
+  font-weight: bold;
+}
+
+/* Classe pour cacher visuellement un élément mais le garder accessible aux lecteurs d'écran */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

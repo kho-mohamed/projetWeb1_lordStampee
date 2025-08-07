@@ -1,0 +1,110 @@
+.entete {
+  display: flex;
+  background-color: var(--fond-gris);
+}
+.entete__logo {
+  width: 120px;
+  margin-left: 10px;
+}
+.entete__navigation {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+}
+.entete__nav-secondaire {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: var(--taile-petit-texte);
+}
+.entete__nav-principale,
+.entete__recherche,
+.entete__connexion,
+.entete__notifications {
+  /* Regroupement des marges/paddings similaires */
+  margin: 5px 20px;
+}
+.entete__config {
+  min-width: 50px;
+  padding: 5px;
+  background-color: var(--cliquable-secondaire);
+  margin: 5px 0; /* Suppression de la marge horizontale pour coller les éléments */
+}
+.entete__config a,
+.entete__connexion a {
+  text-decoration: none;
+}
+.entete__config a {
+  color: var(--fond-blanc);
+}
+.entete__config select {
+  border: none;
+  background-color: var(--cliquable-secondaire);
+  color: var(--fond-blanc);
+  font-size: var(--taile-petit-texte);
+}
+.entete__nav-principale {
+  display: flex;
+  gap: var(--espace-standard);
+  margin-right: var(--espace-petit);
+  margin-top: var(--espace-standard);
+}
+.entete__recherche {
+  flex-grow: 1;
+  justify-content: center;
+  display: flex;
+  border-radius: 5px;
+}
+.entete__recherche input {
+  border: none;
+  min-width: 500px;
+  height: 50px;
+  padding: var(--espace-petit);
+  font-size: var(--taille-titre2);
+  background-color: var(--fond-blanc);
+  border: 2px solid var(--cliquable-secondaire);
+  border-radius: 5px 0px 0px 5px;
+}
+.entete__recherche button {
+  border: none;
+  background-color: var(--cliquable-secondaire);
+  padding: 5px 15px;
+  border-radius: 0px 5px 5px 0px;
+  height: 50px;
+}
+.entete__connexion {
+  font-size: var(--taille-titre2);
+}
+.entete__connexion a {
+  color: var(--cliquable-secondaire);
+}
+
+/* Amélioration de l'accessibilité et de la navigation */
+.entete__config:focus-within,
+.entete__config:hover {
+  background-color: var(--hover-secondaire);
+}
+
+.entete__config select:focus {
+  outline: 2px solid var(--couleur-principale);
+  outline-offset: 2px;
+}
+
+/* Meilleure visibilité des liens de navigation */
+.entete__config a:focus {
+  outline: 2px solid var(--couleur-principale);
+  outline-offset: 2px;
+}
+
+/* Configuration pour coller les éléments de navigation */
+.entete__nav-secondaire .entete__config:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.entete__nav-secondaire .entete__config:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+
+.entete__nav-secondaire .entete__config:not(:first-child):not(:last-of-type) {
+  border-radius: 0;
+}

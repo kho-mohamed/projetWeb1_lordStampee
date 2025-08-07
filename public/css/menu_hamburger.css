@@ -1,0 +1,93 @@
+.menu_hamburger,
+.menu_hamburger__liste,
+.menu_hamburger__item,
+.menu_hamburger__titre-sous-liste {
+  border-radius: 5px;
+}
+
+.menu_hamburger {
+  color: var(--cliquable-secondaire);
+  position: relative;
+  z-index: 10;
+}
+
+.menu_hamburger__styleliste {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  list-style: none;
+  background-color: var(--fond-gris);
+}
+
+.menu_hamburger__liste {
+  color: var(--cliquable-secondaire);
+  padding: var(--espace-petit);
+  min-width: 200px;
+  & a {
+    text-decoration: none;
+    color: var(--cliquable-secondaire);
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  & a:hover {
+    background-color: var(--hover-secondaire);
+  }
+}
+
+.menu_hamburger__titre {
+  font-size: var(--taille-titre);
+}
+
+.menu_hamburger__symbole {
+  font-size: 2em;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.menu_hamburger__conteneur-sous-liste {
+  position: relative;
+}
+
+.menu_hamburger__action:checked ~ .menu_hamburger__liste {
+  display: flex;
+}
+
+.menu_hamburger__sous-liste {
+  padding: 5px;
+  left: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.menu_hamburger__conteneur-sous-liste:hover .menu_hamburger__sous-liste {
+  display: flex;
+  min-width: 150px;
+}
+
+.menu_hamburger__sous-liste__item {
+  min-width: 200px;
+  text-align: center;
+}
+
+/* Amélioration de l'accessibilité du menu hamburger */
+.menu_hamburger__entete:focus,
+.menu_hamburger__entete:focus-within {
+  outline: 2px solid var(--couleur-principale);
+  outline-offset: 2px;
+}
+
+.menu_hamburger__entete:hover {
+  background-color: var(--fond-blanc);
+  border-radius: 5px;
+  padding: 5px;
+  margin: -5px; /* Compenser le padding pour éviter le dépassement */
+}
+
+.menu_hamburger__item a:focus {
+  outline: 2px solid var(--couleur-principale);
+  outline-offset: 2px;
+  background-color: var(--hover-secondaire);
+}

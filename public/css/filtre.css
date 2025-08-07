@@ -1,0 +1,77 @@
+.filtre {
+  display: flex;
+  flex-flow: column;
+  gap: var(--espace-petit);
+  margin-left: var(--espace-petit);
+}
+
+.filtre__entete,
+.filtre__corps {
+  display: flex;
+  gap: var(--espace-petit);
+}
+
+.filtre__entete {
+  flex-flow: row;
+}
+
+.filtre__corps {
+  justify-content: center;
+  font-size: var(--taille-petit-texte);
+  color: var(--fond-blanc);
+}
+
+.filtre__icone {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+}
+
+.filtre__boutton,
+.filtre__sous-menu {
+  min-width: 190px;
+  border-radius: 5px;
+  background-color: var(--cliquable-secondaire);
+}
+
+.filtre__boutton {
+  min-height: 40px;
+  padding: var(--espace-tres-petit);
+  text-align: center;
+  position: relative;
+}
+
+.filtre__boutton picture {
+  margin-left: 5px;
+  width: 20px;
+  display: inline-block;
+}
+
+.filtre__sous-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.filtre__boutton:hover {
+  background-color: var(--hover-secondaire);
+  color: var(--cliquable-secondaire);
+  cursor: pointer;
+}
+
+.filtre__boutton:hover .filtre__sous-menu {
+  display: block;
+}
+
+.filtre_sous-menu-item {
+  color: var(--fond-blanc);
+  padding: var(--espace-petit);
+  list-style: none;
+  min-width: 190px;
+}
+
+.filtre_sous-menu-item:hover {
+  background-color: var(--hover-secondaire);
+  color: var(--cliquable-secondaire);
+}

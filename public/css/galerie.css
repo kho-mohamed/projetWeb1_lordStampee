@@ -1,0 +1,49 @@
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--espace-large);
+  padding: var(--espace-large);
+  margin: var(--espace-standard) auto;
+}
+
+.galerie__carte {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--separateur);
+  border-radius: 10px;
+  padding-bottom: var(--espace-petit);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(48, 48, 48, 0.15);
+}
+.galerie__carte img {
+  border-radius: 10px 10px 0 0;
+}
+.galerie__carte:hover {
+  scale: 1.1;
+}
+
+.galerie__carte__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.galerie__carte__titre {
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+.galerie__carte__info {
+  display: flex;
+  justify-content: center;
+  gap: var(--espace-standard);
+}
+.galerie__carte__info li {
+  list-style: none;
+  font-size: 0.8em;
+}
+
+.galerie__carte__type {
+  color: var(--couleur-principale);
+}

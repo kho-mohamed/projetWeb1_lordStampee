@@ -1,0 +1,39 @@
+.piedpage {
+  display: flex;
+  flex-flow: column;
+  gap: var(--espace-large);
+  align-items: center;
+  background-color: var(--fond-gris);
+}
+.piedpage__logo {
+  width: 110px;
+  height: 110px;
+  margin-bottom: var(--espace-petit);
+}
+
+/* Regroupement des styles communs pour les liens */
+.piedpage__nav-principale a,
+.piedpage__nav-secondaire a {
+  text-decoration: none;
+}
+
+/* Styles spécifiques à chaque navigation */
+.piedpage__nav-principale {
+  display: flex;
+  gap: 60px;
+  font-size: var(--taille-titre2);
+  border-bottom: 1px solid var(--separateur);
+}
+.piedpage__nav-principale a {
+  color: var(--cliquable-secondaire);
+}
+
+.piedpage__nav-secondaire {
+  display: flex;
+  gap: var(--espace-standard);
+  font-size: var(--taille-texte);
+  margin-bottom: var(--espace-petit);
+}
+.piedpage__nav-secondaire a {
+  color: var(--texte);
+}

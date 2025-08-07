@@ -1,0 +1,194 @@
+.carte__element-flex {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.carte {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+.carte__produit-principal {
+  display: flex;
+  flex-flow: row;
+  gap: 20px;
+}
+.carte__carrousel {
+  flex-basis: 100px;
+}
+.carte__image-principal {
+  flex-basis: 300px;
+  flex-grow: 3;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  &:hover {
+    scale: 1.5;
+  }
+}
+
+.carte__description {
+  flex-basis: 250px;
+  flex-grow: 2;
+  padding: 10px;
+  flex-flow: column;
+  gap: 20px;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.carte__description__titre {
+  display: flex;
+  padding: 5px;
+  gap: 10px;
+  align-items: center;
+}
+.carte__action {
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 20px;
+  width: 80%;
+  background-color: var(--fond-gris);
+  margin: var(--espace-standard) auto;
+}
+.carte__action__prix {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 5px;
+}
+.carte__action__prix_text {
+  color: var(--couleur-principale);
+}
+.carte__action__prix__chiffre {
+  font-weight: 500;
+  color: var(--cliquable-principal);
+}
+.carte__action__boutton {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+  & a {
+    display: block;
+    text-decoration: none;
+  }
+}
+.carte__action__boutton__style {
+  color: var(--fond-blanc);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  min-height: 44px; /* Taille minimale recommandée pour les éléments interactifs */
+  &:hover {
+    scale: 1.05;
+  }
+}
+.carte__action__boutton__style:focus {
+  outline: 2px solid var(--couleur-principale);
+  outline-offset: 2px;
+}
+.carte__action__boutton__offre {
+  background-color: var(--cliquable-principal);
+
+  &:hover {
+    background-color: var(--hover-principal);
+    color: var(--cliquable-principal);
+  }
+}
+.carte__action__boutton__suivre {
+  background-color: var(--cliquable-secondaire);
+
+  &:hover {
+    background-color: var(--hover-secondaire);
+    color: var(--cliquable-secondaire);
+  }
+}
+
+.carte__compteur {
+  flex-flow: row;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: var(--separateur);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin: var(--espace-petit) auto;
+}
+.carte__description__details {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid var(--separateur);
+  & h2 {
+    font-size: var(--taille-titre2);
+  }
+  & ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+
+    & li {
+      min-width: 180px;
+      padding: 5px 10px;
+      background-color: var(--fond-gris);
+      border-radius: 10px;
+      text-align: center;
+      border-left: 10px solid var(--couleur-principale);
+      font-size: 0.8em;
+    }
+  }
+}
+
+.carte__contenue-additionnel {
+  max-width: 80%;
+  padding: var(--espace-standard);
+  & small + p {
+    margin-top: 20px;
+  }
+  & p + h3 {
+    margin-top: 20px;
+  }
+  & h3 + * {
+    margin-top: 10px;
+  }
+}
+
+/* Amélioration responsive pour les écrans larges */
+@media (min-width: 1200px) {
+  .carte {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .carte__contenue-additionnel {
+    max-width: 90%;
+  }
+}
+
+/* Limitation de la largeur des paragraphes pour la lisibilité */
+p {
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+/* Classe commune pour les éléments flexbox avec alignements */
+
+/* Amélioration des alignements et espacements cohérents */
+.carte__action {
+  margin: var(--espace-standard) auto;
+}
+
+.carte__compteur {
+  margin: var(--espace-petit) auto;
+}
+
+/* Amélioration de l'accessibilité des boutons */
