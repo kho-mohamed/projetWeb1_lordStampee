@@ -1,0 +1,35 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+form {
+  text-align: center;
+  width: 300px;
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+input,
+select {
+  padding: 10px;
+  border: none;
+  background-color: rgb(197, 241, 241);
+  border-radius: 10px;
+}
+button {
+  border: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.checkbox-container {
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+}

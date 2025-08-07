@@ -2,8 +2,8 @@
 use App\Routes\Route;
 use App\Controllers\HomeController;
 // use App\Controllers\ClientController;
-// use App\Controllers\UserController;
-// use App\Controllers\AuthController;
+use App\Controllers\UserController;
+use App\Controllers\AuthController;
 
 Route::get('', 'HomeController@index');
 Route::get('/index', 'HomeController@index');
@@ -17,12 +17,12 @@ Route::get('/index', 'HomeController@index');
 // Route::post('/client/edit', 'ClientController@update');
 // Route::post('/client/delete', 'ClientController@delete');
 
-// Route::get('/user/create', 'UserController@create');
-// Route::post('/user/store', 'UserController@store');
+Route::get('/user/create', 'UserController@create');
+Route::post('/user/store', 'UserController@store');
 
-// Route::get('/login', 'AuthController@index');
-// Route::post('/login', 'AuthController@store');
-// Route::get('/logout', 'AuthController@delete');
+Route::get('/login', 'AuthController@index');
+Route::post('/login', 'AuthController@store');
+Route::get('/logout', 'AuthController@delete');
 
 
 Route::dispatch();

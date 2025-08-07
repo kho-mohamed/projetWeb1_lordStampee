@@ -4,14 +4,13 @@ namespace App\Controllers;
 use App\Providers\View;
 use App\Providers\Validator;
 use App\Providers\Auth;
-use App\Models\Privilege;
 use App\Models\User;
 
 class UserController
 {
     public function __construct()
     {
-        Auth::session();
+        // Auth::session(); à remettre en place pour vérifier la session de l'utilisateur
     }
     public function create()
     {

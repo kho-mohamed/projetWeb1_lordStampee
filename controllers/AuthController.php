@@ -12,9 +12,10 @@ class AuthController{
     }
     public function store($data){
         $validator = new Validator;
-        $validator->field('login', $data['login'])->min(2)->max(50)->email();
+        $validator->field('login', $data['login'])->min(2)->max(50);
         $validator->field('motDePasse', $data['motDePasse'])->min(6)->max(20);
-         if($validator->isSuccess()){
+        
+        if($validator->isSuccess()){
             $user = new User;
             $checkuser = $user->checkUser($data['login'], $data['motDePasse']);
             if($checkuser){
