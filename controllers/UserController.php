@@ -10,7 +10,7 @@ class UserController
 {
     public function __construct()
     {
-        // Auth::session(); à remettre en place pour vérifier la session de l'utilisateur
+        // Auth::session();//  à remettre en place pour vérifier la session de l'utilisateur
     }
     public function create()
     {
@@ -55,4 +55,5 @@ class UserController
             ]);
         }
     }
+    
 }

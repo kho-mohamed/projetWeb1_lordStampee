@@ -75,7 +75,13 @@
                 </div>
 
                 <div class="entete__connexion">
-                    <a href="#">Se connecter</a>
+                    <a href="{{ base }}/login">Se connecter</a>
+                </div>
+                <div class="entete__connexion">
+                    <a href="{{ base }}/user/create">S'enregistrer</a>
+                </div>
+                <div class="entete__connexion">
+                    <a href="{{ base }}/user/index">Mon profil</a>
                 </div>
 
                 <picture class="entete__notifications">

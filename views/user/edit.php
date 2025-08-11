@@ -1,8 +1,8 @@
-{{ include('layouts/header.php', {title: 'enregistrement membre'})}}
+{{ include('layouts/header.php', {title: 'modification membre'})}}
 
-<h1>Inscription d'un nouveau membre</h1>
+<h1>Modification des informations</h1>
 <div class="form-container">
-    <form action="{{base}}/user/store" method="POST">
+    <form action="{{base}}/user/update" method="POST">
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" value="{{user.nom}}">
 
