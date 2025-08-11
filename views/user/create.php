@@ -2,7 +2,7 @@
 
 
 <div class="form-container">
-    <h1>Inscription d'un nouveau membre</h1>
+    <h1 class="form_header">Inscription d'un nouveau membre</h1>
     <form action="{{base}}/user/store" method="POST">
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" value="{{user.nom}}">

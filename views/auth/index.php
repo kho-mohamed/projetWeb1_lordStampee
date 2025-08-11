@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title: 'page de connection'})}}
 
-<h1>Page de connection</h1>
 <div class="form-container">
+    <h1 class="form_header">Page de connection</h1>
     <form action="{{base}}/login" method="POST">
         <label for="login">Login :</label>
         <input type="text" name="login" id="login" value="{{user.login}}">

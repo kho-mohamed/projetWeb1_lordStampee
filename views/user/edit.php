@@ -2,7 +2,7 @@
 
 
 <div class="form-container">
-    <h1>Modification des informations</h1>
+    <h1 class="form_header">Modification des informations</h1>
     <form action="{{base}}/user/update?id={{user.id}}" method="POST">
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" value="{{user.nom}}">

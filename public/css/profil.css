@@ -128,11 +128,7 @@
 
 .profil__button {
   display: inline-block;
-  background: linear-gradient(
-    135deg,
-    var(--cliquable-principal),
-    var(--hover-principal)
-  );
+  background: var(--cliquable-principal);
   color: var(--fond-blanc);
   padding: var(--espace-petit) var(--espace-standard);
   border-radius: 25px;
@@ -147,28 +143,18 @@
 .profil__button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(177, 63, 63, 0.4);
-  background: linear-gradient(
-    135deg,
-    var(--hover-principal),
-    var(--cliquable-principal)
-  );
+  background: var(--hover-principal);
+  color: var(--cliquable-principal);
 }
 
 .profil__button--secondary {
-  background: linear-gradient(
-    135deg,
-    var(--cliquable-secondaire),
-    var(--hover-secondaire)
-  );
+  background: var(--cliquable-secondaire);
   box-shadow: 0 2px 10px rgba(46, 88, 153, 0.3);
 }
 
 .profil__button--secondary:hover {
-  background: linear-gradient(
-    135deg,
-    var(--hover-secondaire),
-    var(--cliquable-secondaire)
-  );
+  background: var(--hover-secondaire);
+  color: var(--cliquable-secondaire);
   box-shadow: 0 4px 15px rgba(46, 88, 153, 0.4);
 }
 

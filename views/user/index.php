@@ -59,6 +59,9 @@
             <a href="{{ base }}/user/edit" class="profil__button">
                 Modifier mon profil
             </a>
+            <a href="{{ base }}/user/delete" class="profil__button">
+                Supprimer mon profil
+            </a>
             <a href="{{ base }}/logout" class="profil__button profil__button--secondary">
                 Se déconnecter
             </a>
