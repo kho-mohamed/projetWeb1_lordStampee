@@ -40,7 +40,7 @@ class UserController
             ->max(20);
         $validator->field('email', $data['email'])
             ->required()
-            ->email();
+            ->email()->unique('user');
 
         if ($validator->isSuccess()) {
             $user = new User();
@@ -55,5 +55,71 @@ class UserController
             ]);
         }
     }
-    
+
+    public function index()
+    {
+        if (isset($_SESSION['user_id'])) {
+            $id = $_SESSION['user_id'];
+            $user = new User();
+            $userData = $user->selectId($id);
+            return View::render('user/index', [
+                'user' => $userData
+            ]);
+        } else {
+            return View::redirect('login');
+        }
+    }
+
+    public function edit()
+    {
+        if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+            $id = $_SESSION['user_id'];
+            $user = new User();
+            $userData = $user->selectId($id);
+            return View::render('user/edit', [
+                'user' => $userData
+            ]);
+        }
+    }
+
+    public function update($data, $get)
+    {
+        // Auth::session();
+        if (isset($get['id']) && $get['id'] != null) {
+            $validator = new Validator();
+            $validator->field('nom', $data['nom'])
+                ->required()
+                ->min(3)
+                ->max(50);
+            $validator->field('prenom', $data['prenom'])
+                ->required()
+                ->min(3)
+                ->max(50);
+            $validator->field('login', $data['login'])
+                ->required()
+                ->min(3)
+                ->max(50);
+            $validator->field('motDePasse', $data['motDePasse'])
+                ->required()
+                ->min(6)
+                ->max(20);
+            $validator->field('email', $data['email'])
+                ->required()
+                ->email();
+
+            if ($validator->isSuccess()) {
+                $user = new User();
+                $data['motDePasse'] = $user->hashPassword($data['motDePasse']);
+                $update = $user->update($data, $_SESSION['user_id']);
+                return View::redirect('user/index');
+            } else {
+                $errors = $validator->getErrors();
+                return View::render('user/edit', [
+                    'errors' => $errors,
+                    'user' => $data
+                ]);
+            }
+        }
+    }
+
 }

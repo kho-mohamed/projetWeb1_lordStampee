@@ -1,8 +1,9 @@
 {{ include('layouts/header.php', {title: 'modification membre'})}}
 
-<h1>Modification des informations</h1>
+
 <div class="form-container">
-    <form action="{{base}}/user/update" method="POST">
+    <h1>Modification des informations</h1>
+    <form action="{{base}}/user/update?id={{user.id}}" method="POST">
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" value="{{user.nom}}">
 
@@ -17,13 +18,13 @@
         {% endif %}
 
         <label for="login">Login :</label>
-        <input type="text" name="login" id="login" value="{{user.login}}">
+        <input type="text" name="login" id="login" value="{{user.login}}" readonly>
         {% if errors.login is defined %}
         <span class="error">{{ errors.login }}</span>
         {% endif %}
 
         <label for="motDePasse">Mot de passe :</label>
-        <input type="password" name="motDePasse" id="motDePasse" value="{{user.motDePasse}}">
+        <input type="password" name="motDePasse" id="motDePasse" value="">
         {% if errors.motDePasse is defined %}
         <span class="error">{{ errors.motDePasse }}</span>
         {% endif %}

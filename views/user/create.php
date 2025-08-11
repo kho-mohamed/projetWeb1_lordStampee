@@ -1,7 +1,8 @@
 {{ include('layouts/header.php', {title: 'enregistrement membre'})}}
 
-<h1>Inscription d'un nouveau membre</h1>
+
 <div class="form-container">
+    <h1>Inscription d'un nouveau membre</h1>
     <form action="{{base}}/user/store" method="POST">
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" value="{{user.nom}}">
@@ -23,7 +24,7 @@
         {% endif %}
 
         <label for="motDePasse">Mot de passe :</label>
-        <input type="password" name="motDePasse" id="motDePasse" value="{{user.motDePasse}}">
+        <input type="password" name="motDePasse" id="motDePasse" value="">
         {% if errors.motDePasse is defined %}
         <span class="error">{{ errors.motDePasse }}</span>
         {% endif %}

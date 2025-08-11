@@ -24,7 +24,7 @@ class Validator
     public function required()
     {
         if (empty($this->value)) {
-            $this->errors[$this->key] = "$this->name is required";
+            $this->errors[$this->key] = "$this->name est obligatoire";
         }
         return $this;
     }
@@ -54,7 +54,7 @@ class Validator
     public function max($length)
     {
         if (strlen($this->value) > $length) {
-            $this->errors[$this->key] = "$this->name must be less than $length characters";
+            $this->errors[$this->key] = "$this->name doit avoir moins que $length caractères";
         }
         return $this;
     }
@@ -62,7 +62,7 @@ class Validator
     public function min($length)
     {
         if (strlen($this->value) < $length) {
-            $this->errors[$this->key] = "$this->name must be more than $length characters";
+            $this->errors[$this->key] = "$this->name doit avoir plus que $length caractères";
         }
         return $this;
     }
@@ -82,21 +82,22 @@ class Validator
     public function email()
     {
         if (!empty($this->value) && !filter_var($this->value, FILTER_VALIDATE_EMAIL)) {
-            $this->errors[$this->key] = "$this->name must be a valid email address";
+            $this->errors[$this->key] = "$this->name doit être une adresse email valide";
         }
         return $this;
     }
-    public function unique($model){
-        $model = 'App\\Models\\'.$model;
+    public function unique($model)
+    {
+        $model = 'App\\Models\\' . $model;
         $model = new $model;
         $unique = $model->unique($this->key, $this->value);
-        if($unique){
-            $this->errors[$this->key]="$this->name must be unique.";
+        if ($unique) {
+            $this->errors[$this->key] = "$this->name doit être unique.";
         }
         return $this;
     }
 
-    
+
 }
 
 ?>

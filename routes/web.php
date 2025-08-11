@@ -20,7 +20,7 @@ Route::get('/index', 'HomeController@index');
 Route::get('/user/create', 'UserController@create');
 Route::post('/user/store', 'UserController@store');
 Route::get('/user/index', 'UserController@index');
-Route::post('/user/edit', 'UserController@edit');
+Route::get('/user/edit', 'UserController@edit');
 Route::post('/user/update', 'UserController@update');
 
 Route::get('/login', 'AuthController@index');

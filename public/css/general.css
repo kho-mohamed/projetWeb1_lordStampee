@@ -45,6 +45,9 @@ h6 {
   color: var(--couleur-principale);
   font-weight: bold;
 }
+h1 {
+  text-align: center;
+}
 
 /* Classe pour cacher visuellement un élément mais le garder accessible aux lecteurs d'écran */
 .sr-only {
