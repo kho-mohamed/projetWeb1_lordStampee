@@ -22,6 +22,7 @@ Route::post('/user/store', 'UserController@store');
 Route::get('/user/index', 'UserController@index');
 Route::get('/user/edit', 'UserController@edit');
 Route::post('/user/update', 'UserController@update');
+Route::get('/user/delete', 'UserController@delete');
 
 Route::get('/login', 'AuthController@index');
 Route::post('/login', 'AuthController@store');

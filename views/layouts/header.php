@@ -73,16 +73,19 @@
                         <img src="{{ asset }}/images/rechercher.webp" alt="Icône de recherche" />
                     </button>
                 </div>
-
+                {% if session.user_id is not defined %}
                 <div class="entete__connexion">
                     <a href="{{ base }}/login">Se connecter</a>
                 </div>
                 <div class="entete__connexion">
                     <a href="{{ base }}/user/create">S'enregistrer</a>
                 </div>
+                {% endif %}
+                {% if session.user_id is defined %}
                 <div class="entete__connexion">
                     <a href="{{ base }}/user/index">Mon profil</a>
                 </div>
+                {% endif %}
 
                 <picture class="entete__notifications">
                     <img src="{{ asset }}/images/bouton-notifications.webp" alt="Notifications" />

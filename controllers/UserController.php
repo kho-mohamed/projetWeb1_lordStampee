@@ -122,4 +122,19 @@ class UserController
         }
     }
 
+
+    public function delete()
+    {
+        if (Auth::session()) {
+            $user = new User;
+            $delete = $user->delete($_SESSION['user_id']);
+            if ($delete) {
+                return View::redirect('login');
+            } else {
+                return View::render('error', ['message' => "La suppression ne s'est pas bien passée, il y a un problème."]);
+            }
+        }
+
+    }
 }
+
