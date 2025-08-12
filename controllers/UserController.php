@@ -33,14 +33,14 @@ class UserController
             ->required()
             ->min(3)
             ->max(50)
-            ->unique('user');
+            ->unique('User');
         $validator->field('motDePasse', $data['motDePasse'])
             ->required()
             ->min(6)
             ->max(20);
         $validator->field('email', $data['email'])
             ->required()
-            ->email()->unique('user');
+            ->email();
 
         if ($validator->isSuccess()) {
             $user = new User();
