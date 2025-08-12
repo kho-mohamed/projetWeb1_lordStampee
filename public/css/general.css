@@ -6,6 +6,8 @@
   --hover-principal: #e8c5c5;
   --cliquable-secondaire: #2e5899;
   --hover-secondaire: #a8c0e5;
+  --fond-formulaire: #e8f0f9;
+
   --separateur: #d4af37;
   --fond-gris: #f7f7f7;
   --fond-blanc: #ffffff;
@@ -44,6 +46,9 @@ h6 {
   font-family: var(--font-titre);
   color: var(--couleur-principale);
   font-weight: bold;
+}
+h1 {
+  text-align: center;
 }
 
 /* Classe pour cacher visuellement un élément mais le garder accessible aux lecteurs d'écran */

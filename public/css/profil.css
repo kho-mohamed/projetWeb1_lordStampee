@@ -1,0 +1,188 @@
+/* Styles pour la page profil utilisateur */
+.profil {
+  max-width: 800px;
+  margin: var(--espace-large) auto;
+  padding: var(--espace-standard);
+  background-color: var(--fond-blanc);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(35, 53, 128, 0.1);
+}
+
+.profil__header {
+  text-align: center;
+  margin-bottom: var(--espace-large);
+  padding-bottom: var(--espace-standard);
+  border-bottom: 2px solid var(--separateur);
+}
+
+.profil__header h1 {
+  color: var(--couleur-principale);
+  font-size: 2.5em;
+  margin-bottom: var(--espace-petit);
+  font-family: var(--font-titre);
+}
+
+.profil__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--couleur-principale),
+    var(--cliquable-secondaire)
+  );
+  margin: 0 auto var(--espace-standard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fond-blanc);
+  font-size: 3em;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(35, 53, 128, 0.2);
+}
+
+.profil__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espace-large);
+  margin-bottom: var(--espace-large);
+}
+
+.profil__info {
+  background-color: var(--fond-gris);
+  padding: var(--espace-standard);
+  border-radius: 10px;
+  border-left: 4px solid var(--couleur-principale);
+}
+
+.profil__info h2 {
+  color: var(--couleur-principale);
+  font-size: var(--taille-titre);
+  margin-bottom: var(--espace-standard);
+  font-family: var(--font-titre);
+}
+
+.profil__field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espace-petit) 0;
+  border-bottom: 1px solid rgba(35, 53, 128, 0.1);
+  margin-bottom: var(--espace-petit);
+}
+
+.profil__field:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.profil__label {
+  font-weight: 600;
+  color: var(--texte);
+  font-size: var(--taille-texte);
+}
+
+.profil__value {
+  color: var(--couleur-principale);
+  font-weight: 500;
+}
+
+.profil__stats {
+  background: linear-gradient(
+    135deg,
+    var(--couleur-principale),
+    var(--cliquable-secondaire)
+  );
+  color: var(--fond-blanc);
+  padding: var(--espace-standard);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.profil__stats h2 {
+  color: var(--fond-blanc);
+  margin-bottom: var(--espace-standard);
+  font-family: var(--font-titre);
+}
+
+.profil__stat-item {
+  margin-bottom: var(--espace-petit);
+}
+
+.profil__stat-number {
+  font-size: 2em;
+  font-weight: bold;
+  display: block;
+}
+
+.profil__stat-label {
+  font-size: var(--taille-petit-texte);
+  opacity: 0.9;
+}
+
+.profil__actions {
+  text-align: center;
+  padding-top: var(--espace-standard);
+  border-top: 1px solid rgba(35, 53, 128, 0.1);
+}
+
+.profil__button {
+  display: inline-block;
+  background: var(--cliquable-principal);
+  color: var(--fond-blanc);
+  padding: var(--espace-petit) var(--espace-standard);
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--taille-texte);
+  transition: all 0.3s ease;
+  margin: 0 var(--espace-petit);
+  box-shadow: 0 2px 10px rgba(177, 63, 63, 0.3);
+}
+
+.profil__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(177, 63, 63, 0.4);
+  background: var(--hover-principal);
+  color: var(--cliquable-principal);
+}
+
+.profil__button--secondary {
+  background: var(--cliquable-secondaire);
+  box-shadow: 0 2px 10px rgba(46, 88, 153, 0.3);
+}
+
+.profil__button--secondary:hover {
+  background: var(--hover-secondaire);
+  color: var(--cliquable-secondaire);
+  box-shadow: 0 4px 15px rgba(46, 88, 153, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profil {
+    margin: var(--espace-standard);
+    padding: var(--espace-standard);
+  }
+
+  .profil__content {
+    grid-template-columns: 1fr;
+    gap: var(--espace-standard);
+  }
+
+  .profil__avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5em;
+  }
+
+  .profil__header h1 {
+    font-size: 2em;
+  }
+
+  .profil__field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--espace-tres-petit);
+  }
+}

@@ -1,0 +1,48 @@
+.form-container {
+  max-width: 800px;
+  max-width: 800px;
+  margin: var(--espace-large) auto;
+  padding: var(--espace-standard);
+  background-color: var(--fond-blanc);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(35, 53, 128, 0.1);
+  justify-content: center;
+}
+.form_header {
+  text-align: center;
+  margin-bottom: var(--espace-large);
+  padding-bottom: var(--espace-standard);
+  border-bottom: 2px solid var(--separateur);
+}
+form {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.form_input {
+  width: 350px;
+  padding: 10px;
+  border: none;
+  background-color: var(--fond-formulaire);
+  border-radius: 10px;
+}
+button {
+  border: none;
+  background-color: var(--cliquable-secondaire);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.checkbox-container {
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+}
