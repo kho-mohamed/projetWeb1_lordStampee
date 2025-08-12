@@ -95,14 +95,7 @@ class UserController
                 ->required()
                 ->min(3)
                 ->max(50);
-            $validator->field('login', $data['login'])
-                ->required()
-                ->min(3)
-                ->max(50);
-            $validator->field('motDePasse', $data['motDePasse'])
-                ->required()
-                ->min(6)
-                ->max(20);
+
             $validator->field('email', $data['email'])
                 ->required()
                 ->email();

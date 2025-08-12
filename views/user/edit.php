@@ -17,17 +17,7 @@
         <span class="error">{{ errors.prenom }}</span>
         {% endif %}
 
-        <label for="login">Login :</label>
-        <input class="form_input" type="text" name="login" id="login" value="{{user.login}}" readonly>
-        {% if errors.login is defined %}
-        <span class="error">{{ errors.login }}</span>
-        {% endif %}
 
-        <label for="motDePasse">Mot de passe :</label>
-        <input class="form_input" type="password" name="motDePasse" id="motDePasse" value="">
-        {% if errors.motDePasse is defined %}
-        <span class="error">{{ errors.motDePasse }}</span>
-        {% endif %}
 
         <label for="email">Courriel :</label>
         <input class="form_input" type="email" name="email" id="email" value="{{user.email}}">
