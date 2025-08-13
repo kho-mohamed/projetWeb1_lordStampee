@@ -27,7 +27,7 @@ Le site LORD STAMPEE vise à présenter la marque de manière professionnelle et
 
 - Toutes les tâches du sprint 1 sont inclus dans une branche.
 - Les tâches dans chaque sprint du sprint 1 sont inclus dans un commit explicatif
-- lorsque le sprint 1 est jugé finalisé j'ai pull request vers le main pour avoir une version final à jour. 
+- lorsque le sprint 1 est jugé finalisé j'ai pull request vers le main pour avoir une version final à jour.
 
 ## Auteur
 
