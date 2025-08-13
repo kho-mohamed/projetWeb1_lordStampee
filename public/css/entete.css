@@ -3,7 +3,8 @@
   background-color: var(--fond-gris);
 }
 .entete__logo {
-  width: 120px;
+  max-width: 120px;
+  min-width: 10px;
   margin-left: 10px;
 }
 .entete__navigation {
@@ -107,4 +108,22 @@
 
 .entete__nav-secondaire .entete__config:not(:first-child):not(:last-of-type) {
   border-radius: 0;
+}
+
+@media screen and (max-width: 1150px) {
+  .menu_hamburger__titre {
+    display: none;
+  }
+  .entete__recherche input {
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 785px) {
+  .entete__recherche input,
+  .entete__recherche button,
+  .entete__notifications,
+  .entete__nav-secondaire {
+    display: none;
+  }
 }
