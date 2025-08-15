@@ -97,6 +97,29 @@ class Validator
         return $this;
     }
 
+    public function maxSize($size, $sizeFile)
+    {
+        // Vérifier si la taille du fichier n'est pas null
+        if ($sizeFile !== null && $sizeFile > $size) {
+            $this->errors[$this->key] = "$this->name doit avoir moins que $size octets";
+        }
+        return $this;
+    }
+
+    public function valideExt($extension, $fileName)
+    {
+        // Vérifier si le nom de fichier n'est pas null ou vide
+        if (empty($fileName)) {
+            $this->errors[$this->key] = "$this->name doit avoir un fichier valide.";
+            return $this;
+        }
+
+        $fileExt = strtolower(substr(strrchr($fileName, '.'), 1));
+        if ($fileExt !== $extension) {
+            $this->errors[$this->key] = "$this->name doit avoir une extension valide. $fileExt extension $extension";
+        }
+        return $this;
+    }
 
 }
 

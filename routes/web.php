@@ -16,6 +16,9 @@ Route::get('/index', 'HomeController@index');
 // Route::get('/client/edit', 'ClientController@edit');
 // Route::post('/client/edit', 'ClientController@update');
 // Route::post('/client/delete', 'ClientController@delete');
+Route::get('/timbres/create', 'TimbreController@create');
+Route::post('/timbres/store', 'TimbreController@store');
+Route::get('/timbres/index', 'TimbreController@index');
 
 Route::get('/user/create', 'UserController@create');
 Route::post('/user/store', 'UserController@store');

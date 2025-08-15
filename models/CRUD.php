@@ -19,7 +19,7 @@ abstract class CRUD extends \PDO
         if ($field == null) {
             $field = $this->primaryKey;
         }
-        $sql = "SELECT * FROM $this->table ORDER BY $field $order";
+        $sql = "SELECT * FROM `$this->table` ORDER BY `$field` $order";
         if ($stmt = $this->query($sql)) {
             return $stmt->fetchAll();
         } else {
@@ -27,10 +27,23 @@ abstract class CRUD extends \PDO
         }
 
     }
-
-    final public function selectId($value)
+    public function selectWhere($where, $valueWhere, $field = null, $order = 'asc')
     {
-        $sql = "SELECT * FROM  $this->table WHERE $this->primaryKey = :$this->primaryKey";
+        if ($field == null) {
+            $field = $this->primaryKey;
+        }
+        $sql = "SELECT * FROM `$this->table` WHERE `$where` = :$where ORDER BY `$field` $order";
+        $stmt = $this->prepare($sql);
+        $stmt->bindValue(":$where", $valueWhere);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function selectId($value)
+    {
+
+        $sql = "SELECT * FROM `$this->table` WHERE `$this->primaryKey` = :$this->primaryKey";
+
         $stmt = $this->prepare($sql);
         $stmt->bindValue(":$this->primaryKey", $value);
         $stmt->execute();
@@ -48,10 +61,9 @@ abstract class CRUD extends \PDO
         $data_keys = array_fill_keys($this->fillable, '');
         $data = array_intersect_key($data, $data_keys);
 
-        $fieldName = implode(', ', array_keys($data));
+        $fieldName = '`' . implode('`, `', array_keys($data)) . '`';
         $fieldValue = ":" . implode(', :', array_keys($data));
-        $sql = "INSERT INTO $this->table ($fieldName) VALUES ($fieldValue);";
-
+        $sql = "INSERT INTO `$this->table` ($fieldName) VALUES ($fieldValue);";
         $stmt = $this->prepare($sql);
         foreach ($data as $key => $value) {
             $stmt->bindValue(":$key", $value);
@@ -70,10 +82,10 @@ abstract class CRUD extends \PDO
 
         $fieldName = null;
         foreach ($data as $key => $value) {
-            $fieldName .= "$key = :$key, ";
+            $fieldName .= "`$key` = :$key, ";
         }
         $fieldName = rtrim($fieldName, ', ');
-        $sql = "UPDATE $this->table SET $fieldName WHERE $this->primaryKey = :$this->primaryKey";
+        $sql = "UPDATE `$this->table` SET $fieldName WHERE `$this->primaryKey` = :$this->primaryKey";
         // return $sql;
         $data[$this->primaryKey] = $id;
 
@@ -92,7 +104,7 @@ abstract class CRUD extends \PDO
     final public function delete($value)
     {
 
-        $sql = "DELETE FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
+        $sql = "DELETE FROM `$this->table` WHERE `$this->primaryKey` = :$this->primaryKey";
         $stmt = $this->prepare($sql);
         $stmt->bindValue(":$this->primaryKey", $value);
         if ($stmt->execute()) {
@@ -105,7 +117,7 @@ abstract class CRUD extends \PDO
 
     public function unique($field, $value)
     {
-        $sql = "SELECT * FROM $this->table WHERE $field = :$field";
+        $sql = "SELECT * FROM `$this->table` WHERE `$field` = :$field";
         $stmt = $this->prepare($sql);
         $stmt->bindValue(":$field", $value);
         $stmt->execute();
