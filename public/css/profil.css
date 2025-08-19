@@ -107,6 +107,8 @@
 
 .profil__stat-item {
   margin-bottom: var(--espace-petit);
+  display: flex;
+  flex-flow: column;
 }
 
 .profil__stat-number {
@@ -117,7 +119,9 @@
 
 .profil__stat-label {
   font-size: var(--taille-petit-texte);
-  opacity: 0.9;
+  text-decoration: none;
+  color: var(--fond-blanc);
+  font-weight: 600;
 }
 
 .profil__actions {

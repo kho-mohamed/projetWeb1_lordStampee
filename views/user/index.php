@@ -40,17 +40,43 @@
 
                 <div class="profil__stat-item">
                     <span class="profil__stat-number">0</span>
-                    <span class="profil__stat-label">Timbres collectés</span>
+                    <a class="profil__stat-label" href="{{base}}/timbres/index">Timbres collectés <svg width="20"
+                            height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Ouvrir le lien">
+                            <path d="M14 3h7v7" />
+                            <path d="M21 3l-9 9" />
+                            <path d="M5 12v7a2 2 0 0 0 2 2h7" />
+                        </svg></a>
+                    <a class="profil__stat-label" href="{{base}}/timbres/create">Ajouter un timbre <svg width="20"
+                            height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Ouvrir le lien">
+                            <path d="M14 3h7v7" />
+                            <path d="M21 3l-9 9" />
+                            <path d="M5 12v7a2 2 0 0 0 2 2h7" />
+                        </svg></a>
+
                 </div>
 
                 <div class="profil__stat-item">
                     <span class="profil__stat-number">0</span>
-                    <span class="profil__stat-label">Enchères gagnées</span>
+                    <a class="profil__stat-label" href="{{base}}/encheres/index">Enchères gagnées <svg width="20"
+                            height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Ouvrir le lien">
+                            <path d="M14 3h7v7" />
+                            <path d="M21 3l-9 9" />
+                            <path d="M5 12v7a2 2 0 0 0 2 2h7" />
+                        </svg></a>
                 </div>
 
                 <div class="profil__stat-item">
                     <span class="profil__stat-number">0</span>
-                    <span class="profil__stat-label">Favoris</span>
+                    <a class="profil__stat-label" href="{{base}}/favoris/index">Favoris <svg width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Ouvrir le lien">
+                            <path d="M14 3h7v7" />
+                            <path d="M21 3l-9 9" />
+                            <path d="M5 12v7a2 2 0 0 0 2 2h7" />
+                        </svg></a>
                 </div>
             </div>
         </div>

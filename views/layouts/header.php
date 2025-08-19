@@ -8,13 +8,17 @@
     <link
         href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Raleway:wght@300;400;700&display=swap"
         rel="stylesheet" />
+    <script type="module" src="{{ asset }}/scripts/header-screen.js"></script>
+    <script type="module" src="{{ asset }}/scripts/timer-enchere.js"></script>
+    <script type="module" src="{{ asset }}/scripts/photo-principale.js"></script>
+    <script type="module" src="{{ asset }}/scripts/ajout_favoris.js"></script>
     <title>{{ title }}</title>
 </head>
 
 <body>
     <header class="entete">
         <picture class="entete__logo">
-            <img src="{{ asset }}/images/logo.webp" alt="Logo de Lord Stampee" />
+            <img class="entete__logo-image" src="{{ asset }}/images/logo.webp" alt="Logo de Lord Stampee" />
         </picture>
         <div class="entete__navigation">
             <nav class="entete__nav-secondaire">
@@ -66,6 +70,7 @@
                         </li>
                     </ul>
                 </nav>
+                <div class=" entete__logo entete__logo2"></div>
 
                 <div class="entete__recherche">
                     <input type="search" placeholder="Quel timbre cherchez-vous ?" />
@@ -75,15 +80,37 @@
                 </div>
                 {% if session.user_id is not defined %}
                 <div class="entete__connexion">
-                    <a href="{{ base }}/login">Se connecter</a>
+                    <a href="{{ base }}/login"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            role="img" aria-labelledby="title-login">
+                            <title id="title-login">Se connecter</title>
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                            <polyline points="10 17 15 12 10 7" />
+                            <line x1="15" y1="12" x2="3" y2="12" />
+                        </svg></a>
                 </div>
                 <div class="entete__connexion">
-                    <a href="{{ base }}/user/create">S'enregistrer</a>
+                    <a href="{{ base }}/user/create"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            role="img" aria-labelledby="title-user-plus">
+                            <title id="title-user-plus">S'enregistrer</title>
+                            <circle cx="12" cy="8" r="4" />
+                            <path d="M4 20c0-4.4 3.6-8 8-8" />
+                            <line x1="20" y1="8" x2="20" y2="14" />
+                            <line x1="17" y1="11" x2="23" y2="11" />
+                        </svg></a>
                 </div>
                 {% endif %}
                 {% if session.user_id is defined %}
                 <div class="entete__connexion">
-                    <a href="{{ base }}/user/index">Mon profil</a>
+                    <a href="{{ base }}/user/index"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            role="img" aria-labelledby="title-user-circle">
+                            <title id="title-user-circle">Compte</title>
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="10" r="3" />
+                            <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+                        </svg></a>
                 </div>
                 {% endif %}
 

@@ -1,0 +1,67 @@
+.carte-catalogue,
+.carte-catalogue__achat {
+  border-radius: 10px;
+}
+
+.carte-catalogue {
+  display: flex;
+  flex-flow: column;
+  border: 2px solid var(--separateur);
+  padding-bottom: var(--espace-petit);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(48, 48, 48, 0.15);
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+}
+.carte-catalogue img {
+  border-radius: 10px 10px 0 0;
+}
+/* .carte-catalogue:hover {
+  scale: 1.1;
+} */
+.carte-catalogue__titre,
+.carte-catalogue__compteur {
+  margin: 0 auto;
+}
+.carte-catalogue__info {
+  display: flex;
+  justify-content: center;
+  gap: var(--espace-standard);
+}
+.carte-catalogue__info li {
+  list-style: none;
+}
+.carte-catalogue__type,
+.carte-catalogue__rebourt {
+  color: var(--couleur-principale);
+}
+.carte-catalogue__action {
+  display: flex;
+  gap: var(--espace-large);
+  margin-top: 20px;
+  justify-content: center;
+}
+.carte-catalogue__rebourt picture,
+.carte-catalogue__achat > picture {
+  display: inline-block;
+  width: 24px;
+  height: 36px;
+}
+.carte-catalogue__achat {
+  background-color: var(--cliquable-principal);
+  border: none;
+  color: var(--fond-blanc);
+  padding: 5px 10px;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+.carte-catalogue__achat > picture {
+  margin-left: 10px;
+}
+
+/* Amélioration de l'accessibilité des cartes catalogue */
+.carte-catalogue__achat:focus {
+  outline: 2px solid var(--couleur-principale);
+  outline-offset: 2px;
+}
