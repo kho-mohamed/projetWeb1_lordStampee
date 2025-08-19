@@ -110,7 +110,25 @@ class TimbreController
                     ];
                     $image->insert($dataImage2);
                 }
-                return View::render('timbre/index', ['message' => 'Timbre ajouté avec succès !', 'membreId' => $data['membreId']]);
+
+                // Récupérer toutes les données nécessaires pour l'affichage de l'index
+                $timbreModel = new Timbre;
+                $timbres = $timbreModel->selectWhere('membreId', $_SESSION['user_id']);
+                $couleurs = new Couleurs;
+                $CouleursList = $couleurs->select();
+                $pays = new Pays;
+                $PaysList = $pays->select();
+                $condition = new Condition;
+                $ConditionList = $condition->select();
+
+                return View::render('timbre/index', [
+                    'message' => 'Timbre ajouté avec succès !',
+                    'membreId' => $_SESSION['user_id'],
+                    'timbres' => $timbres,
+                    'couleurs' => $CouleursList,
+                    'pays' => $PaysList,
+                    'conditions' => $ConditionList
+                ]);
             } else {
                 return View::render('error', ['message' => 'Il y a eu une erreur lors de l\'insertion du timbre.']);
             }
@@ -123,6 +141,7 @@ class TimbreController
             $condition = new Condition;
             $ConditionList = $condition->select();
             return View::render('timbre/create', [
+                'timbre' => $data, // Ajouter les données saisies pour les réafficher
                 'membreId' => $data['membreId'],
                 'couleurs' => $CouleursList,
                 'pays' => $PaysList,
