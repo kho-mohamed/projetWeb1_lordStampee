@@ -22,6 +22,9 @@ Route::get('/user/delete', 'UserController@delete');
 Route::get('/timbres/create', 'TimbreController@create');
 Route::post('/timbres/store', 'TimbreController@store');
 Route::get('/timbres/index', 'TimbreController@index');
+Route::get('/timbres/edit', 'TimbreController@edit');
+Route::post('/timbres/update', 'TimbreController@update');
+Route::get('/timbres/delete', 'TimbreController@delete');
 
 Route::get('/enchere/index', 'EnchereController@index');
 Route::get('/enchere/show', 'EnchereController@show');

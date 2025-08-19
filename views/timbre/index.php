@@ -18,7 +18,8 @@
             <th>Couleur</th>
             <th>Pays</th>
             <th>Condition</th>
-            <th>Voir Enchère</th>
+            <th>Modifier un timbre</th>
+            <th>Supprimer le timbre</th>
         </tr>
     </thead>
     <tbody>
@@ -51,7 +52,10 @@
             <td>{{ couleurInput }}</td>
             <td>{{ paysInput }}</td>
             <td>{{ conditionInput }}</td>
-            <td><a href="{{base}}/encheres/show?id={{timbre.id}}">Détail de l'enchère</a></td>
+            <td><a href="{{base}}/timbres/edit?id={{timbre.id}}">Modifier</a></td>
+            <td><a href="{{base}}/timbres/delete?id={{timbre.id}}"
+                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce timbre ? Cette action est irréversible.');"
+                    style="color: red;">Supprimer</a></td>
         </tr>
         {% endfor %}
     </tbody>
