@@ -9,6 +9,9 @@
         href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Raleway:wght@300;400;700&display=swap"
         rel="stylesheet" />
     <script type="module" src="{{ asset }}/scripts/header-screen.js"></script>
+    <script type="module" src="{{ asset }}/scripts/timer-enchere.js"></script>
+    <script type="module" src="{{ asset }}/scripts/photo-principale.js"></script>
+    <script type="module" src="{{ asset }}/scripts/ajout_favoris.js"></script>
     <title>{{ title }}</title>
 </head>
 

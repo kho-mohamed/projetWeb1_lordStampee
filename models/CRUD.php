@@ -20,6 +20,7 @@ abstract class CRUD extends \PDO
             $field = $this->primaryKey;
         }
         $sql = "SELECT * FROM `$this->table` ORDER BY `$field` $order";
+
         if ($stmt = $this->query($sql)) {
             return $stmt->fetchAll();
         } else {
@@ -64,6 +65,7 @@ abstract class CRUD extends \PDO
         $fieldName = '`' . implode('`, `', array_keys($data)) . '`';
         $fieldValue = ":" . implode(', :', array_keys($data));
         $sql = "INSERT INTO `$this->table` ($fieldName) VALUES ($fieldValue);";
+        echo $sql;
         $stmt = $this->prepare($sql);
         foreach ($data as $key => $value) {
             $stmt->bindValue(":$key", $value);

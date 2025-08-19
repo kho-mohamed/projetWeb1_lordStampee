@@ -61,7 +61,7 @@ class TimbreController
 
         // Vérifier si image2 existe et a été uploadé (optionnel)
         if (isset($files['image2']) && $files['image2']['error'] === UPLOAD_ERR_OK) {
-            $validator->field('image2', $files['image2'])->valideExt(['webp'], $files['image2']['name'])->maxsize(209715200, $files['image2']['size']);
+            $validator->field('image2', $files['image2'])->valideExt('webp', $files['image2']['name'])->maxsize(209715200, $files['image2']['size']);
         }
 
         if ($validator->isSuccess()) {
@@ -89,12 +89,12 @@ class TimbreController
                 $image->insert($dataImage);
                 if (isset($files['image2']) && $files['image2']['error'] === UPLOAD_ERR_OK) {
                     $lien2 = $image->upload($files['image2']);
-                    $dataImage = [
+                    $dataImage2 = [
                         'lien' => $lien2,
                         'principale' => 0,
-                        'timbre_id' => $insertTimbre
+                        'timbreId' => $insertTimbre
                     ];
-                    $image->insert($dataImage);
+                    $image->insert($dataImage2);
                 }
                 return View::render('timbre/index', ['message' => 'Timbre ajouté avec succès !', 'membreId' => $data['membreId']]);
             } else {

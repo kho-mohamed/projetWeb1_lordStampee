@@ -32,3 +32,11 @@ Le site LORD STAMPEE vise à présenter la marque de manière professionnelle et
 ## Auteur
 
 Khoudou Mohamed
+
+
+## source :
+
+- mdn.com
+- php.net
+- youtube.com
+- 

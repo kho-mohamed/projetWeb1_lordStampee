@@ -13,9 +13,10 @@ class Image extends CRUD
         $tmpName = $file['tmp_name'];
         $uniqueName = uniqid(rand(), true);
         $destination = './public/upload/' . $uniqueName . '.webp';
+        $lien = 'upload/' . $uniqueName . '.webp';
         $result = move_uploaded_file($tmpName, $destination);
         if ($result) {
-            return $destination;
+            return $lien;
         } else {
             return false;
         }
