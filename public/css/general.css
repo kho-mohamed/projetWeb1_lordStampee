@@ -63,3 +63,15 @@ h1 {
   white-space: nowrap;
   border: 0;
 }
+
+/* On ajoute des classes spécial pour le message d'enchère dans mise/index */
+
+.gagne{
+  color: green;
+  font-weight: bold;
+}
+
+.perdu{
+  color: red;
+  font-weight: bold;
+}

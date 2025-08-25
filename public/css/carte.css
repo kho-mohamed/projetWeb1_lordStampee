@@ -99,7 +99,7 @@
   }
 }
 .carte__action__boutton__suivre {
-  background-color: var(--cliquable-secondaire);
+  background-color: var(--fond-formulaire);
 
   &:hover {
     background-color: var(--hover-secondaire);

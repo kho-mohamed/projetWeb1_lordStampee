@@ -11,7 +11,7 @@
     <script type="module" src="{{ asset }}/scripts/header-screen.js"></script>
     <script type="module" src="{{ asset }}/scripts/timer-enchere.js"></script>
     <script type="module" src="{{ asset }}/scripts/photo-principale.js"></script>
-    <script type="module" src="{{ asset }}/scripts/ajout_favoris.js"></script>
+    <script type="module" src="{{ asset }}/scripts/filtre.js"></script>
     <title>{{ title }}</title>
 </head>
 

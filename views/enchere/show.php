@@ -1,4 +1,4 @@
-{{ include('layouts/header.php', {title: 'Liste des enchères'})}}
+{{ include('layouts/header.php', {title: 'Fiche d\'enchère'})}}
 <script id="enchere-json" type="application/json">
   {{ {
       id: enchere.id,
@@ -33,19 +33,33 @@
                         <img src="{{asset}}/images/bouton-notifications.webp" alt="Notifications" />
                     </picture>
                 </div>
-                <div class="carte__action carte__element-flex">
+                <form action="{{base}}/mise/insert" class="carte__action carte__element-flex" method="POST">
                     <div class="carte__action__prix">
                         <span class="carte__action__prix_text">Prix Plancher :</span>
                         <span class="carte__action__prix__chiffre">{{ enchere.prix_plancher }} CAD</span>
                     </div>
-                    <div class="carte__action__boutton">
-                        <a class="carte__action__boutton__style carte__action__boutton__offre" href="#">Faire une
-                            mise</a>
+                    <input type="hidden" name="enchereId" value="{{ enchere.id }}">
+                    <input type="hidden" name="membreId" value="{{ timbre.membreId }}">
+                    <input type="hidden" name="date_mise" value="{{ " now"|date("Y-m-d") }}">
+                    <!-- <div class="carte__action__boutton">
                         <a class="carte__action__boutton__style carte__action__boutton__suivre" data-favoris="oui"
                             href="#">Ajouter à mes
                             favoris</a>
+                        <a class="carte__action__boutton__style carte__action__boutton__offre" href="#">Faire une
+                            mise</a>
+                    </div> -->
+
+                    <div class="carte__action__boutton">
+                        <input type="number" name="montant" step="0.01" min="{{enchere.prix_plancher}}"
+                            class="carte__action__boutton__style carte__action__boutton__suivre" />
+                        {% if errors.montant is defined %}
+                        <span class="error">{{ errors.montant }}</span>
+                        {% endif %}
+                        <button type="submit" class="carte__action__boutton__style carte__action__boutton__offre">
+                            Faire une mise
+                        </button>
                     </div>
-                </div>
+                </form>
                 <div class="carte__compteur carte__element-flex compteur-enchere">
 
                 </div>

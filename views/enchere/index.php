@@ -9,36 +9,42 @@
         </div>
         <div class="filtre__corps">
             <div class="filtre__boutton">
-                <span>Par types de timbres</span>
+                <span>Par couleur de timbres</span>
                 <picture><img src="{{ asset }}/images/dropdown.webp" alt="dropdown" /></picture>
                 <ul class="filtre__sous-menu">
-                    <li class="filtre_sous-menu-item">Timbres-poste</li>
-                    <li class="filtre_sous-menu-item">Timbres commémoratifs</li>
-                    <li class="filtre_sous-menu-item">Timbres courants</li>
-                    <li class="filtre_sous-menu-item">Timbres de poste aérienne</li>
-                    <li class="filtre_sous-menu-item">Timbres fiscaux</li>
-                    <li class="filtre_sous-menu-item">Timbres de service</li>
-                    <li class="filtre_sous-menu-item">Préoblitérés</li>
-                    <li class="filtre_sous-menu-item">
-                        Carnets / Blocs / Feuilles complètes
-                    </li>
+                    {% for couleur in couleurs %}
+                    <li class="filtre_sous-menu-item" data-couleur="{{ couleur.id }}">{{ couleur.nom }}</li>
+                    {% endfor %}
+
                 </ul>
             </div>
             <div class="filtre__boutton">
-                <span>Par origine géographique</span>
+                <span>Par pays</span>
                 <picture><img src="{{ asset }}/images/dropdown.webp" alt="dropdown" /></picture>
+                <ul class="filtre__sous-menu">
+                    {% for pay in pays %}
+                    <li class="filtre_sous-menu-item" data-pays="{{ pay.id }}">{{ pay.nom }}</li>
+                    {% endfor %}
+                </ul>
             </div>
             <div class="filtre__boutton">
                 <span>Par période d'émission</span>
                 <picture><img src="{{ asset }}/images/dropdown.webp" alt="dropdown" /></picture>
+                <ul class="filtre__sous-menu">
+                    <li class="filtre_sous-menu-item" data-date="1">Avant 1900</li>
+                    <li class="filtre_sous-menu-item" data-date="2">1900 - 1950</li>
+                    <li class="filtre_sous-menu-item" data-date="3">1951 - 2000</li>
+                    <li class="filtre_sous-menu-item" data-date="4">2001 - Présent</li>
+                </ul>
             </div>
             <div class="filtre__boutton">
                 <span>Par état du timbre</span>
                 <picture><img src="{{ asset }}/images/dropdown.webp" alt="dropdown" /></picture>
-            </div>
-            <div class="filtre__boutton">
-                <span>Par thématique</span>
-                <picture><img src="{{ asset }}/images/dropdown.webp" alt="dropdown" /></picture>
+                <ul class="filtre__sous-menu">
+                    {% for condition in conditions %}
+                    <li class="filtre_sous-menu-item">{{ condition.nom }}</li>
+                    {% endfor %}
+                </ul>
             </div>
             <div class="filtre__boutton">
                 <span>Par statut d'enchère</span>
@@ -48,11 +54,10 @@
                 <span>Par tranches de Prix</span>
                 <picture><img src="{{ asset }}/images/dropdown.webp" alt="dropdown" /></picture>
                 <ul class="filtre__sous-menu">
-                    <li class="filtre_sous-menu-item">0 - 100CAD</li>
-                    <li class="filtre_sous-menu-item">101 - 500CAD</li>
-                    <li></li>
-                    <li class="filtre_sous-menu-item">501 -1000CAD</li>
-                    <li class="filtre_sous-menu-item">plus que 1000CAD</li>
+                    <li class="filtre_sous-menu-item" data-prix="1">0 - 500CAD</li>
+                    <li class="filtre_sous-menu-item" data-prix="2">501 - 1000CAD</li>
+                    <li class="filtre_sous-menu-item" data-prix="3">plus que 1000CAD</li>
+
                 </ul>
             </div>
         </div>
@@ -69,7 +74,7 @@
         {%if timbre.id == enchere.timbreId %}
         {% set timbreObjet = timbre %}
         {% for couleur in couleurs %}
-        {% if couleur.id == timbreObjet.couleurId %}
+        {% if couleur.id == timbreObjet.couleursId %}
         {% set couleurInput = couleur.nom %}
         {% endif %}
         {% endfor %}
@@ -94,18 +99,27 @@
         {% endif %}
         {% endfor %}
 
-        <script class="enchere-json" id="enchere-json{{ enchere.id }}" type="application/json">
+        <script class="enchereindex-json" id="liste-enchere-json{{ enchere.id }}" type="application/json">
     {{ {
         id: enchere.id,
         date_debut: enchere.date_debut|date('c'),
-        date_fin: enchere.date_fin|date('c')
+        date_fin: enchere.date_fin|date('c'),
+        timbreId: timbreObjet.id,
+        nom: timbreObjet.nom,
+        couleur: timbreObjet.couleursId,
+        couleurNom: couleurInput,
+        pays: timbreObjet.paysId,
+        paysNom : paysInput,
+        condition: timbreObjet.conditionId,
+        conditionNom : conditionInput,
+        imagePrincipale: imageInput.lien,
     }|json_encode|raw }}
     </script>
 
         <a class="carte-catalogue" href="{{base}}/enchere/show?id={{ enchere.id }}">
             <picture class="carte-catalogue__image"><img src="{{ asset }}/{{ imageInput.lien }}" alt="timbre" />
             </picture>
-            <h2 class="carte-catalogue__titre">{{timbre.nom}}</h2>
+            <h2 class="carte-catalogue__titre">{{timbreObjet.nom}}</h2>
             <div class="carte-catalogue__info">
                 <div class="carte-catalogue__type">
                     <ul>

@@ -29,6 +29,9 @@ Route::get('/timbres/delete', 'TimbreController@delete');
 Route::get('/enchere/index', 'EnchereController@index');
 Route::get('/enchere/show', 'EnchereController@show');
 
+Route::post('/mise/insert', 'MiseController@insert');
+Route::get('/mise/index', 'MiseController@index');
+
 // Route::get('/clients', 'ClientController@index');
 // Route::get('/client/show', 'ClientController@show');
 // Route::get('/client/create', 'ClientController@create');

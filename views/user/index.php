@@ -39,7 +39,6 @@
                 <h2>Mes Statistiques</h2>
 
                 <div class="profil__stat-item">
-                    <span class="profil__stat-number">0</span>
                     <a class="profil__stat-label" href="{{base}}/timbres/index">Timbres collectés <svg width="20"
                             height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Ouvrir le lien">
@@ -58,9 +57,8 @@
                 </div>
 
                 <div class="profil__stat-item">
-                    <span class="profil__stat-number">0</span>
-                    <a class="profil__stat-label" href="{{base}}/encheres/index">Enchères gagnées <svg width="20"
-                            height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    <a class="profil__stat-label" href="{{base}}/mise/index">Mes Mises <svg width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Ouvrir le lien">
                             <path d="M14 3h7v7" />
                             <path d="M21 3l-9 9" />

@@ -1,6 +1,7 @@
 .carte-catalogue,
 .carte-catalogue__achat {
   border-radius: 10px;
+  max-width: 400px;
 }
 
 .carte-catalogue {
