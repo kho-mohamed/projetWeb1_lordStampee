@@ -4,12 +4,14 @@ const photos = document.querySelectorAll(".carte__carrousel__miniature img");
 const photoP = document.querySelector("[data-principale='1']");
 
 function init() {
-  // on affecte une photo par default au produit :
-  photoPrincipale(photoP);
-  if (photos.length > 1) {
-    photos.forEach((photo) => {
-      photo.addEventListener("click", changementPhoto);
-    });
+  if (balisePhotoPrincipale != undefined) {
+    // on affecte une photo par default au produit :
+    photoPrincipale(photoP);
+    if (photos.length > 1) {
+      photos.forEach((photo) => {
+        photo.addEventListener("click", changementPhoto);
+      });
+    }
   }
 }
 if (photos.length > 0) {

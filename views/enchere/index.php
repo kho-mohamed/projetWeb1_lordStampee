@@ -139,7 +139,7 @@
             <div class="carte-catalogue__action">
                 <div class="carte-catalogue__rebourt">
                     <picture><img src="{{asset}}/images/sablier.webp" alt="sablier" /></picture><span
-                        class="compteur-enchere">2j : 5h : 30mn</span>
+                        class="compteur-enchere" id="compteur-enchere{{ enchere.id }}">2j : 5h : 30mn</span>
                 </div>
                 <div class="carte-catalogue__achat">
                     <span>Voir l'enchère</span>
