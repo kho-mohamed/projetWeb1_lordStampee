@@ -10,12 +10,19 @@ scripts.forEach((script) => {
 
 // on récupére les filtres disponibles:
 const filtreCouleurs = document.querySelectorAll("[data-couleur]");
+const filtrePays = document.querySelectorAll("[data-pays]");
+const filtreConditions = document.querySelectorAll("[data-condition]");
+const filtreDate = document.querySelectorAll("[data-date]");
 
 function init() {
   // Logique d'initialisation ici
-  filtreCouleurs();
+  filtreDeCouleurs();
+  filtreDePays();
+  filtreDeCondition();
+  filtreDeDate();
+  console.log(filtreDeDate());
 }
-function filtreCouleurs() {
+function filtreDeCouleurs() {
   filtreCouleurs.forEach((filtre) => {
     filtre.addEventListener("click", async (event) => {
       const couleurId = event.currentTarget.dataset.couleur;
@@ -24,6 +31,89 @@ function filtreCouleurs() {
       const enchereFiltree = enchereDataArray.filter(
         (enchere) => enchere.couleur == couleurId
       );
+      if (enchereFiltree.length === 0) {
+        alert("Aucune enchère trouvée pour cette couleur.");
+      }
+      console.log("Enchères filtrées :", enchereFiltree);
+      enchereFiltree.forEach((enchere) => {
+        afficheEncheres(enchere);
+      });
+    });
+  });
+}
+
+function filtreDePays() {
+  filtrePays.forEach((filtre) => {
+    filtre.addEventListener("click", async (event) => {
+      const paysId = event.currentTarget.dataset.pays;
+      console.log("Pays sélectionné :", paysId);
+      // Filtrer les enchères en fonction du pays sélectionné
+      const enchereFiltree = enchereDataArray.filter(
+        (enchere) => enchere.pays == paysId
+      );
+      if (enchereFiltree.length === 0) {
+        alert("Aucune enchère trouvée pour ce pays.");
+      }
+      console.log("Enchères filtrées :", enchereFiltree);
+      enchereFiltree.forEach((enchere) => {
+        afficheEncheres(enchere);
+      });
+    });
+  });
+}
+
+function filtreDeDate() {
+  filtreDate.forEach((filtre) => {
+    filtre.addEventListener("click", async (event) => {
+      const dateId = event.currentTarget.dataset.date;
+      console.log("Date sélectionnée :", dateId);
+      // Filtrer les enchères en fonction de la date sélectionnée
+      let enchereFiltree;
+      if (dateId == 1) {
+        enchereFiltree = enchereDataArray.filter(
+          (enchere) => Number(enchere.timbreDate) < 1900
+        );
+      } else if (dateId == 2) {
+        enchereFiltree = enchereDataArray.filter(
+          (enchere) =>
+            Number(enchere.timbreDate) >= 1900 &&
+            Number(enchere.timbreDate) < 1950
+        );
+      } else if (dateId == 3) {
+        enchereFiltree = enchereDataArray.filter(
+          (enchere) =>
+            Number(enchere.timbreDate) >= 1950 &&
+            Number(enchere.timbreDate) < 2000
+        );
+      } else if (dateId == 4) {
+        enchereFiltree = enchereDataArray.filter(
+          (enchere) => Number(enchere.timbreDate) >= 2001
+        );
+      }
+
+      if (enchereFiltree.length === 0) {
+        alert("Aucune enchère trouvée pour cette date.");
+      }
+      console.log("Enchères filtrées :", enchereFiltree);
+      enchereFiltree.forEach((enchere) => {
+        afficheEncheres(enchere);
+      });
+    });
+  });
+}
+
+function filtreDeCondition() {
+  filtreConditions.forEach((filtre) => {
+    filtre.addEventListener("click", async (event) => {
+      const conditionId = event.currentTarget.dataset.condition;
+      console.log("Condition sélectionnée :", conditionId);
+      // Filtrer les enchères en fonction de la condition sélectionnée
+      const enchereFiltree = enchereDataArray.filter(
+        (enchere) => enchere.condition == conditionId
+      );
+      if (enchereFiltree.length === 0) {
+        alert("Aucune enchère trouvée pour cette état.");
+      }
       console.log("Enchères filtrées :", enchereFiltree);
       enchereFiltree.forEach((enchere) => {
         afficheEncheres(enchere);
@@ -38,6 +128,7 @@ function afficheEncheres(enchere) {
   aChild.forEach((a) => {
     a.remove(); // supprimer tout les balises a du catalogue
   });
+
   conteneurEncheres.insertAdjacentHTML("beforeend", gabaritHtml(enchere)); // les remplacer par les nouvelles balises
 }
 
