@@ -7,6 +7,7 @@ use App\Models\Couleurs;
 use App\Models\Pays;
 use App\Models\Condition;
 use App\Models\Image;
+use App\Models\Favoris;
 use App\Models\Enchere;
 
 class EnchereController
@@ -48,6 +49,48 @@ class EnchereController
         $image = new Image;
         $imageSelect = $image->selectWhere("timbreId", $timbreSelect['id']);
 
-        return View::render('enchere/show', ['enchere' => $enchereSelect, 'timbre' => $timbreSelect, 'couleur' => $couleursSelect['nom'], 'pays' => $paysSelect['nom'], 'condition' => $conditionSelect['nom'], 'images' => $imageSelect]);
+        $favoris = new Favoris;
+        $favorisSelect = $favoris->selectWhere2("enchere_id", $enchereSelect['id'], "membre_id", $_SESSION['user_id']);
+        if (count($favorisSelect) === 1) {
+            $existFavori = true;
+        } else {
+            $existFavori = false;
+        }
+
+        return View::render('enchere/show', ['enchere' => $enchereSelect, 'timbre' => $timbreSelect, 'couleur' => $couleursSelect['nom'], 'pays' => $paysSelect['nom'], 'condition' => $conditionSelect['nom'], 'images' => $imageSelect, 'favoris' => $favorisSelect]);
+    }
+
+    public function search($data)
+    {
+        $timbre = new Timbre;
+        $where = 'nom';
+        $valueWhere = $data['search'];
+        if ($where && $valueWhere) {
+            $timbreSelect = $timbre->search($where, $valueWhere);
+
+            if ($timbreSelect) {
+                $encheresList = [];
+                foreach ($timbreSelect as $timbre) {
+                    $encheres = new Enchere;
+                    $result = $encheres->selectWhere("timbreId", $timbre['id']);
+                    if ($result) {
+                        foreach ($result as $enchere) {
+                            $encheresList[] = $enchere;
+                        }
+                    }
+                }
+                if ($encheresList) {
+
+
+                    return View::render('enchere/searchIndex', ['encheres' => $encheresList, 'timbres' => $timbreSelect]);
+                } else {
+                    return View::render('enchere/searchIndex', ['error' => 'Aucune enchère trouvée pour ce timbre.']);
+                }
+            } else {
+                return View::render('enchere/searchIndex', ['error' => 'Aucune enchère trouvée pour ce timbre.']);
+            }
+        } else {
+            return View::render('enchere/searchIndex', ['error' => 'Aucune enchère trouvée pour ce timbre.']);
+        }
     }
 }

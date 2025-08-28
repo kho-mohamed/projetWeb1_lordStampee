@@ -66,12 +66,26 @@ h1 {
 
 /* On ajoute des classes spécial pour le message d'enchère dans mise/index */
 
-.gagne{
+.gagne {
   color: green;
   font-weight: bold;
 }
 
-.perdu{
+.perdu {
   color: red;
   font-weight: bold;
+}
+
+/* on ajoute des régles pour le bouton favoris */
+.favoris {
+  background-color: var(--fond-blanc);
+  color: var(--cliquable-principal);
+  border: none;
+  padding: var(--espace-petit) var(--espace-standard);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.favoris:hover {
+  background-color: var(--hover-principal);
 }

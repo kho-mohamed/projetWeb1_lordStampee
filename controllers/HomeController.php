@@ -37,7 +37,6 @@ class HomeController
         foreach ($randomKeys as $key) {
             $selectionTimbreRandom[$key] = $listTimbresAssoc[$key];
         }
-        var_dump(['timbres' => $selectionTimbreRandom], ['timbres selection' => $listTimbresAssoc], ['images' => $listImages], ['pays' => $listPays], ['encheres' => $listEncheres]);
         return View::render('index', ['timbres' => $selectionTimbreRandom, 'images' => $listImages, 'pays' => $listPays, 'encheres' => $listEncheres]);
     }
 }

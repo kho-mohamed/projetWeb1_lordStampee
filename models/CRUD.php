@@ -35,7 +35,30 @@ abstract class CRUD extends \PDO
         }
         $sql = "SELECT * FROM `$this->table` WHERE `$where` = :$where ORDER BY `$field` $order";
         $stmt = $this->prepare($sql);
+
         $stmt->bindValue(":$where", $valueWhere);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function selectWhere2($where1, $valueWhere1, $where2, $valueWhere2, $field = null, $order = 'asc')
+    {
+        if ($field == null) {
+            $field = $this->primaryKey ?: $where1;
+        }
+        $sql = "SELECT * FROM `$this->table` WHERE `$where1` = :$where1 AND `$where2` = :$where2 ORDER BY `$field` $order";
+        $stmt = $this->prepare($sql);
+        $stmt->bindValue(":$where1", $valueWhere1);
+        $stmt->bindValue(":$where2", $valueWhere2);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function search($where, $valueWhere, )
+    {
+        $sql = "SELECT * FROM `$this->table` WHERE `$where` LIKE :$where ;";
+        $stmt = $this->prepare($sql);
+        $stmt->bindValue(":$where", "%$valueWhere%");
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -56,6 +79,8 @@ abstract class CRUD extends \PDO
         }
     }
 
+
+
     final public function insert($data)
     {
 
@@ -70,7 +95,12 @@ abstract class CRUD extends \PDO
             $stmt->bindValue(":$key", $value);
         }
         if ($stmt->execute()) {
-            return $this->lastInsertId();
+            if ($this->lastInsertId() > 0) {
+                return $this->lastInsertId();
+            }
+            if ($this->lastInsertId() == 0) {
+                return true;
+            }
         } else {
             return false;
         }
@@ -108,6 +138,20 @@ abstract class CRUD extends \PDO
         $sql = "DELETE FROM `$this->table` WHERE `$this->primaryKey` = :$this->primaryKey";
         $stmt = $this->prepare($sql);
         $stmt->bindValue(":$this->primaryKey", $value);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    final public function deleteWhere2($field1, $value1, $field2, $value2)
+    {
+
+        $sql = "DELETE FROM `$this->table` WHERE `$field1` = :$field1 AND `$field2` = :$field2";
+        $stmt = $this->prepare($sql);
+        $stmt->bindValue(":$field1", $value1);
+        $stmt->bindValue(":$field2", $value2);
         if ($stmt->execute()) {
             return true;
         } else {

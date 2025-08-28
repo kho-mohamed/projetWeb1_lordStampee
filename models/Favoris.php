@@ -5,6 +5,6 @@ use App\Models\CRUD;
 class Favoris extends CRUD
 {
     protected $table = 'favoris';
-    protected $primaryKey = '';
-    protected $fillable = ['Membre_id', 'Enchere_id'];
+    protected $primaryKey = null;
+    protected $fillable = ['membre_id', 'enchere_id'];
 }

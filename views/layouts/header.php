@@ -69,12 +69,12 @@
                 </nav>
                 <div class=" entete__logo entete__logo2"></div>
 
-                <div class="entete__recherche">
-                    <input type="search" placeholder="Quel timbre cherchez-vous ?" />
+                <form class="entete__recherche" action="{{base}}/enchere/search" method="GET">
+                    <input type="search" name="search" placeholder="Quel timbre cherchez-vous ?" />
                     <button type="submit">
                         <img src="{{ asset }}/images/rechercher.webp" alt="Icône de recherche" />
                     </button>
-                </div>
+                </form>
                 {% if session.user_id is not defined %}
                 <div class="entete__connexion">
                     <a href="{{ base }}/login"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"

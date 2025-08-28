@@ -104,7 +104,7 @@
                 {% endif %}
                 {% endfor %}
 
-                <a class="galerie__carte">
+                <div class="galerie__carte">
                     <picture class="galerie__carte__image"><img src="{{asset}}/{{ imageLien }}" alt="timbre" />
                     </picture>
                     <div class="galerie__carte__information">
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
                 {% endfor %}
 
             </div>
