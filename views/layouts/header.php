@@ -42,29 +42,28 @@
                     </label>
                     <ul class="menu_hamburger__liste menu_hamburger__styleliste">
                         <li class="menu_hamburger__item">
-                            <a href="#">Les enchères encours</a>
+                            <a href="{{base}}/enchere/index">Les enchères Lord stampee</a>
+                        </li>
+                        {% if session.user_id is defined %}
+                        <li class="menu_hamburger__item">
+                            <a href="{{base}}/favoris/index">Mes Enchères favoris</a>
+                        </li>
+                        {% endif %}
+                        {% if session.user_id is defined %}
+                        <li class="menu_hamburger__item">
+                            <a href="{{base}}/mise/index">Mes Mises</a>
+                        </li>
+                        {% endif %}
+                        {% if session.user_id is defined %}
+                        <li class="menu_hamburger__item">
+                            <a href="{{base}}/timbres/index">Mes timbres</a>
+                        </li>
+                        {% endif %}
+                        <li class="menu_hamburger__item">
+                            <a href="{{base}}/index">Notre histoire</a>
                         </li>
 
-                        <li class="menu_hamburger__item">
-                            <a href="#">Les enchères à venir</a>
-                        </li>
-                        <li class="menu_hamburger__item">
-                            <a href="#">Les enchères archivés</a>
-                        </li>
-                        <li class="menu_hamburger__conteneur-sous-liste">
-                            <a class="menu_hamburger__titre-sous-liste" href="#">Les enchères historiques</a>
-                            <ul class="menu_hamburger__sous-liste menu_hamburger__styleliste">
-                                <li class="menu_hamburger__sous-liste__item">
-                                    <a href="#">Les enchères historiques du Lord Stampee</a>
-                                </li>
-                                <li class="menu_hamburger__sous-liste__item">
-                                    <a href="#">Les enchères historiques mondial</a>
-                                </li>
-                                <li class="menu_hamburger__sous-liste__item">
-                                    <a href="#">Les meilleures timbres de l'histoire</a>
-                                </li>
-                            </ul>
-                        </li>
+
                     </ul>
                 </nav>
                 <div class=" entete__logo entete__logo2"></div>

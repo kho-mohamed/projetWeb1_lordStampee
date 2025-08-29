@@ -134,28 +134,62 @@ class FavorisController
             $membreId = $_SESSION['user_id'];
             $favoris = new Favoris;
             $favorisList = $favoris->selectWhere("membre_id", $membreId, 'enchere_id', 'asc');
+
             $encheresList = [];
+            $imagesByTimbre = [];
+
             if (!empty($favorisList)) {
                 foreach ($favorisList as $favori) {
-                    print_r($favori);
-                    echo "<br>";
-                    $enchere = new Enchere;
-                    $encheresList = $enchere->selectId($favori['Enchere_id']);
+                    // Assurer la bonne casse des clés
+                    $enchereId = isset($favori['enchere_id']) ? $favori['enchere_id'] : (isset($favori['Enchere_id']) ? $favori['Enchere_id'] : null);
+                    if (!$enchereId) {
+                        continue;
+                    }
+
+                    $enchereModel = new Enchere;
+                    $enchere = $enchereModel->selectId($enchereId);
+                    if ($enchere) {
+                        $encheresList[] = $enchere;
+
+                        // Préparer l'image principale par timbre
+                        $timbreModel = new Timbre;
+                        $timbre = $timbreModel->selectId($enchere['timbreId']);
+                        if ($timbre) {
+                            $imageModel = new Image;
+                            $imgs = $imageModel->selectWhere("timbreId", $timbre['id']);
+                            if (!empty($imgs)) {
+                                // On prend la première image disponible
+                                $first = is_array($imgs) && isset($imgs[0]) ? $imgs[0] : $imgs;
+                                if (isset($first['lien'])) {
+                                    $imagesByTimbre[$timbre['id']] = $first['lien'];
+                                }
+                            }
+                        }
+                    }
                 }
+
+                // Charger les listes de référence une seule fois
+                $timbres = new Timbre;
+                $TimbresList = $timbres->select();
+                $pays = new Pays;
+                $PaysList = $pays->select();
+
+                return View::render('favoris/index', [
+                    'membreId' => $_SESSION['user_id'],
+                    'encheres' => $encheresList,
+                    'timbres'  => $TimbresList,
+                    'pays'     => $PaysList,
+                    'images'   => $imagesByTimbre,
+                ]);
             } else {
-                return View::render('favoris/index', ['membreId' => $_SESSION['user_id'], 'encheres' => [], 'timbres' => [], 'couleurs' => [], 'pays' => [], 'conditions' => [], 'images' => []]);
+                return View::render('favoris/index', [
+                    'membreId' => $_SESSION['user_id'],
+                    'encheres' => [],
+                    'timbres'  => [],
+                    'pays'     => [],
+                    'images'   => []
+                ]);
             }
-            $timbres = new Timbre;
-            $TimbresList = $timbres->select();
-            $couleurs = new Couleurs;
-            $CouleursList = $couleurs->select();
-            $pays = new Pays;
-            $PaysList = $pays->select();
-            $condition = new Condition;
-            $ConditionList = $condition->select();
-            $image = new Image;
-            $imagesList = $image->select();
-            return View::render('favoris/index', ['membreId' => $_SESSION['user_id'], 'encheres' => $encheresList, 'timbres' => $TimbresList, 'couleurs' => $CouleursList, 'pays' => $PaysList, 'conditions' => $ConditionList, 'images' => $imagesList]);
         }
     }
 
