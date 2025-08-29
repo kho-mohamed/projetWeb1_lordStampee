@@ -46,6 +46,7 @@ h6 {
   font-family: var(--font-titre);
   color: var(--couleur-principale);
   font-weight: bold;
+  margin-top: 20px;
 }
 h1 {
   text-align: center;
@@ -91,5 +92,10 @@ h1 {
 }
 
 .titreIndex {
-  font-size: 1.8em;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+.pIndex {
+  max-width: 900px;
+  text-align: center;
 }

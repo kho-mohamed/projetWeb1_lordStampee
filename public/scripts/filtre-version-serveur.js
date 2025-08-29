@@ -155,15 +155,19 @@ function afficheEncheres(enchereFiltree) {
     a.remove(); // supprimer tout les balises a du catalogue
   });
   enchereFiltree.forEach((enchere) => {
-    conteneurEncheres.insertAdjacentHTML("beforeend", gabaritHtml(enchere)); // les remplacer par les nouvelles balises
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = gabaritHtml(enchere);
+    if (tempDiv.firstElementChild) {
+      conteneurEncheres.append(tempDiv.firstElementChild);
+    }
   });
 }
 
 // Génère le HTML pour une enchère
 function gabaritHtml(enchere) {
   // Mettre à jour l'affichage des enchères ici
-  const gabarit = `<a class="carte-catalogue" href="/enchere/show?id=${enchere.id}">
-            <picture class="carte-catalogue__image"><img src="../../public/${enchere.imagePrincipale}" alt="timbre">
+  const gabarit = `<a class="carte-catalogue" href="/stampee/enchere/show?id=${enchere.id}">
+            <picture class="carte-catalogue__image"><img src="/stampee/public/${enchere.imagePrincipale}" alt="timbre">
             </picture>
             <h2 class="carte-catalogue__titre">${enchere.nom}</h2>
             <div class="carte-catalogue__info">
@@ -182,11 +186,11 @@ function gabaritHtml(enchere) {
             </div>
             <div class="carte-catalogue__action">
                 <div class="carte-catalogue__rebourt">
-                    <picture><img src="/public/images/sablier.webp" alt="sablier"></picture><span class="compteur-enchere">2j : 5h : 30mn</span>
+                    <picture><img src="/stampee/public/images/sablier.webp" alt="sablier"></picture><span class="compteur-enchere">2j : 5h : 30mn</span>
                 </div>
                 <div class="carte-catalogue__achat">
                     <span>Voir l'enchère</span>
-                    <picture><img src="/public/images/encheres.webp" alt="enchere"></picture>
+                    <picture><img src="/stampee/public/images/encheres.webp" alt="enchere"></picture>
                 </div>
             </div>
         </a>`;

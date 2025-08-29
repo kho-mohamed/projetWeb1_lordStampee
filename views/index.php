@@ -5,40 +5,28 @@
         <article class="carte__contenue-additionnel">
             <h1 class="titreIndex">La mission du LORD STAMPEE</h1>
 
-            <p>
-                Bienvenue sur Stampee, la première plateforme d’enchères en ligne
-                dédiée exclusivement à la philatélie. Fondée sous l’impulsion du
-                distingué Lord Reginald Stampee, Stampee a pour mission de
-                rassembler les collectionneurs de timbres du monde entier autour
-                d’une expérience à la fois simple, élégante et raffinée. Ici, chaque
-                enchère raconte une histoire, chaque timbre porte une mémoire, et
-                chaque mise est une promesse d’héritage.
-            </p>
+            <p class="pIndex">Bienvenue sur Stampee, la première plateforme d’enchères en ligne dédiée exclusivement à
+                la philatélie. Fondée sous l’impulsion du distingué Lord Reginald Stampee, Stampee a pour mission de
+                rassembler les collectionneurs de timbres du monde entier autour d’une expérience à la fois simple,
+                élégante et raffinée. Ici, chaque enchère raconte une histoire, chaque timbre porte une mémoire, et
+                chaque mise est une promesse d’héritage.</p>
 
             <h3>Les enchères en vedette</h3>
 
-            <p>
-                Découvrez nos enchères les plus populaires et les “Coups de cœur du
-                Lord”, soigneusement sélectionnés pour leur rareté, leur valeur
-                historique ou leur beauté exceptionnelle.
-            </p>
+            <p class="pIndex">Découvrez nos enchères les plus populaires et les “Coups de cœur du Lord”, soigneusement
+                sélectionnés pour leur rareté, leur valeur historique ou leur beauté exceptionnelle.</p>
 
-            <p>
-                Ces timbres uniques sont disponibles pour une durée limitée – à vous
-                de jouer et de placer votre mise avant qu’il ne soit trop tard.
-            </p>
+            <p class="pIndex">Ces timbres uniques sont disponibles pour une durée limitée – à vous de jouer et de placer
+                votre mise avant qu’il ne soit trop tard.</p>
 
             <h3>À propos de Lord Reginald Stampee</h3>
 
-            <p>
-                Collectionneur passionné depuis les années 1950, Lord Reginald
-                Stampee, duc de Worcessteshear, a consacré sa vie à la philatélie.
-                Il est reconnu mondialement pour la qualité et l’authenticité de sa
-                collection, ainsi que pour ses célèbres enchères organisées chaque
-                saison dans les salons prestigieux du Royaume-Uni.
-            </p>
+            <p class="pIndex">Collectionneur passionné depuis les années 1950, Lord Reginald Stampee, duc de
+                Worcessteshear, a consacré sa vie à la philatélie. Il est reconnu mondialement pour la qualité et
+                l’authenticité de sa collection, ainsi que pour ses célèbres enchères organisées chaque saison dans les
+                salons prestigieux du Royaume-Uni.</p>
 
-            <p>Restez informé des dernières actualités du monde des timbres :</p>
+            <p class="pIndex">Restez informé des dernières actualités du monde des timbres :</p>
             <ul>
                 <li>Prochaines grandes ventes</li>
                 <li>Nouveaux timbres ajoutés à la plateforme</li>
@@ -49,10 +37,8 @@
 
             <h3>Naviguez facilement dans l’univers Stampee</h3>
 
-            <p>
-                Que vous soyez néophyte ou expert philatéliste, Stampee vous offre
-                une navigation fluide et intuitive pour accéder rapidement à :
-            </p>
+            <p class="pIndex">Que vous soyez néophyte ou expert philatéliste, Stampee vous offre une navigation fluide
+                et intuitive pour accéder rapidement à :</p>
 
             <ul>
                 <li>Toutes les enchères en cours</li>
@@ -65,20 +51,14 @@
 
             <h3>Rejoignez la communauté Stampee</h3>
 
-            <p>
-                Devenez membre gratuitement et commencez à suivre, miser et
-                découvrir des trésors postaux du monde entier. Inscription rapide –
-                Enchères ouvertes à tous !
-            </p>
+            <p class="pIndex">Devenez membre gratuitement et commencez à suivre, miser et découvrir des trésors postaux
+                du monde entier. Inscription rapide – Enchères ouvertes à tous !</p>
 
-            <p>Stampee, entre tradition et modernité</p>
+            <p class="pIndex">Stampee, entre tradition et modernité</p>
 
-            <p>
-                Pensée pour les collectionneurs d’hier et d’aujourd’hui, Stampee
-                marie l’élégance classique à une technologie moderne. Entrez dans
-                l’univers du Lord, où chaque timbre vaut bien plus qu’un bout de
-                papier… c’est une pièce d’histoire.
-            </p>
+            <p class="pIndex">Pensée pour les collectionneurs d’hier et d’aujourd’hui, Stampee marie l’élégance
+                classique à une technologie moderne. Entrez dans l’univers du Lord, où chaque timbre vaut bien plus
+                qu’un bout de papier… c’est une pièce d’histoire.</p>
         </article>
         <article class="carte__selection-produit">
             <h2 class="titreIndex">Selection LORD STAMPEE</h2>

@@ -47,10 +47,6 @@
                 </ul>
             </div>
             <div class="filtre__boutton">
-                <span>Par statut d'enchère</span>
-                <picture><img src="{{ asset }}/images/dropdown.webp" alt="dropdown" /></picture>
-            </div>
-            <div class="filtre__boutton">
                 <span>Par tranches de Prix</span>
                 <picture><img src="{{ asset }}/images/dropdown.webp" alt="dropdown" /></picture>
                 <ul class="filtre__sous-menu">

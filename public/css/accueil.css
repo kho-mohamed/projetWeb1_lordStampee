@@ -1,0 +1,34 @@
+/* Styles spécifiques à la page d'accueil Lord Stampee */
+.carte__contenue-additionnel {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+}
+.carte__contenue-additionnel h1,
+.carte__contenue-additionnel h3 {
+  color: #2a3a5e;
+  margin-top: 1.5rem;
+}
+.pIndex {
+  color: #444;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.01em;
+}
+.carte__contenue-additionnel ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: #555;
+  font-size: 1rem;
+}
+.carte__contenue-additionnel li {
+  margin-bottom: 0.5rem;
+}
+.carte__contenue-additionnel h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
