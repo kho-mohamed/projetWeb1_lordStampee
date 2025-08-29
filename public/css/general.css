@@ -89,3 +89,7 @@ h1 {
 .favoris:hover {
   background-color: var(--hover-principal);
 }
+
+.titreIndex {
+  font-size: 1.8em;
+}

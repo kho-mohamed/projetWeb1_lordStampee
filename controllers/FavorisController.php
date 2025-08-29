@@ -177,17 +177,17 @@ class FavorisController
                 return View::render('favoris/index', [
                     'membreId' => $_SESSION['user_id'],
                     'encheres' => $encheresList,
-                    'timbres'  => $TimbresList,
-                    'pays'     => $PaysList,
-                    'images'   => $imagesByTimbre,
+                    'timbres' => $TimbresList,
+                    'pays' => $PaysList,
+                    'images' => $imagesByTimbre,
                 ]);
             } else {
                 return View::render('favoris/index', [
                     'membreId' => $_SESSION['user_id'],
                     'encheres' => [],
-                    'timbres'  => [],
-                    'pays'     => [],
-                    'images'   => []
+                    'timbres' => [],
+                    'pays' => [],
+                    'images' => []
                 ]);
             }
         }

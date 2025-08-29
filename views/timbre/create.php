@@ -81,11 +81,21 @@
         <label id="image1"> Téléverser vos images (Format: webp obligatoire): </label>
         <input type="file" name="image1">
         <input type="file" name="image2">
+        <input type="file" name="image3">
+        <input type="file" name="image4">
         {% if errors.image1 is defined %}
         <span class="error">{{ errors.image1 }}</span>
         {% endif %}
         {% if errors.image2 is defined %}
         <span class="error">{{ errors.image2 }}</span>
+        {% endif %}
+
+        {% if errors.image3 is defined %}
+        <span class="error">{{ errors.image3 }}</span>
+        {% endif %}
+
+        {% if errors.image4 is defined %}
+        <span class="error">{{ errors.image4 }}</span>
         {% endif %}
 
         <button type="submit">Enregistrer</button>

@@ -77,6 +77,13 @@ class TimbreController
         if (isset($files['image2']) && $files['image2']['error'] === UPLOAD_ERR_OK) {
             $validator->field('image2', $files['image2'])->valideExt('webp', $files['image2']['name'])->maxsize(209715200, $files['image2']['size']);
         }
+        // Vérifier si image3 existe et a été uploadé (optionnel)
+        if (isset($files['image3']) && $files['image3']['error'] === UPLOAD_ERR_OK) {
+            $validator->field('image3', $files['image3'])->valideExt('webp', $files['image3']['name'])->maxsize(209715200, $files['image3']['size']);
+        }
+        if (isset($files['image4']) && $files['image4']['error'] === UPLOAD_ERR_OK) {
+            $validator->field('image4', $files['image4'])->valideExt('webp', $files['image4']['name'])->maxsize(209715200, $files['image4']['size']);
+        }
 
         if ($validator->isSuccess()) {
             $dataTimbre = [
@@ -230,6 +237,41 @@ class TimbreController
 
             // Tentative de mise à jour
             $updateTimbre = $timbre->update($dataTimbre, $data['id']);
+
+            // Traitement des images 1 à 4
+            $image = new Image;
+            $imagesExistantes = $image->selectWhere('timbreId', $data['id']);
+            $files = $_FILES;
+            // Pour chaque image existante, on vérifie si une nouvelle image a été uploadée
+            for ($i = 1; $i <= 4; $i++) {
+                $fileKey = 'image' . $i;
+                if (isset($files[$fileKey]) && $files[$fileKey]['error'] === UPLOAD_ERR_OK) {
+                    // Cherche l'image existante correspondante (principale = 1 pour image1, sinon 0)
+                    $principale = ($i == 1) ? 1 : 0;
+                    $imgExist = null;
+                    foreach ($imagesExistantes as $img) {
+                        if ($img['principale'] == $principale) {
+                            $imgExist = $img;
+                            break;
+                        }
+                    }
+                    // Supprime l'ancienne image physique et BDD si elle existe
+                    if ($imgExist) {
+                        if (file_exists('public/image_produit/' . $imgExist['lien'])) {
+                            unlink('public/image_produit/' . $imgExist['lien']);
+                        }
+                        $image->delete($imgExist['id']);
+                    }
+                    // Upload et insert la nouvelle image
+                    $lien = $image->upload($files[$fileKey]);
+                    $dataImage = [
+                        'lien' => $lien,
+                        'principale' => $principale,
+                        'timbreId' => $data['id']
+                    ];
+                    $image->insert($dataImage);
+                }
+            }
 
             if ($updateTimbre) {
                 // Succès : récupérer les données pour l'affichage

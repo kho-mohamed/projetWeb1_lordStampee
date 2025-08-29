@@ -3,9 +3,8 @@
 <main class="corps">
     <div class="carte">
         <article class="carte__contenue-additionnel">
-            <h1>Mission de Stampee</h1>
+            <h1 class="titreIndex">La mission du LORD STAMPEE</h1>
 
-            <small>Prestigieuse maison de vente aux enchères</small>
             <p>
                 Bienvenue sur Stampee, la première plateforme d’enchères en ligne
                 dédiée exclusivement à la philatélie. Fondée sous l’impulsion du
@@ -82,7 +81,7 @@
             </p>
         </article>
         <article class="carte__selection-produit">
-            <h2>Timbres vedettes</h2>
+            <h2 class="titreIndex">Selection LORD STAMPEE</h2>
             <div class="galerie">
                 {% for timbre in timbres %}
                 {% set paysNom = '' %}

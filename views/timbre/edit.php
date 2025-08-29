@@ -3,7 +3,7 @@
 
 <div class="form-container">
     <h1 class="form_header">Modification d'un timbre</h1>
-    <form action="{{base}}/timbres/update" method="POST">
+    <form action="{{base}}/timbres/update" method="POST" enctype="multipart/form-data">
         <label for="nom">Nom :</label>
         <input class="form_input" type="text" name="id" id="id" value="{{timbre.id}}" hidden>
         <input class="form_input" type="text" name="nom" id="nom" value="{{timbre.nom}}">
@@ -78,6 +78,32 @@
         {% if errors.conditionId is defined %}
         <span class="error">{{ errors.conditionId }}</span>
         {% endif %}
+
+        <label for="image1">Image principale (.webp) :</label>
+        {% if timbre.images is defined %}
+        {% for img in timbre.images %}
+        {% if img.principale == 1 %}
+        <img src="{{ asset }}/{{ img.lien }}" alt="Image principale" style="max-width:120px;max-height:120px;" />
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        <input type="file" name="image1" id="image1" accept=".webp">
+
+        <label for="image2">Image secondaire 2 (.webp) :</label>
+        {% if timbre.images is defined %}
+        {% for img in timbre.images %}
+        {% if img.principale == 0 %}
+        <img src="{{ asset }}/{{ img.lien }}" alt="Image secondaire" style="max-width:120px;max-height:120px;" />
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        <input type="file" name="image2" id="image2" accept=".webp">
+
+        <label for="image3">Image secondaire 3 (.webp) :</label>
+        <input type="file" name="image3" id="image3" accept=".webp">
+
+        <label for="image4">Image secondaire 4 (.webp) :</label>
+        <input type="file" name="image4" id="image4" accept=".webp">
 
         <button type="submit">Enregistrer</button>
     </form>
